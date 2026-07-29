@@ -13,6 +13,9 @@ public class RegistroEmocional {
     private String estadoAnimo;
     private String nota;
 
+    public RegistroEmocional() {
+    }
+
     public RegistroEmocional(String fecha, String estadoAnimo, String nota) {
         this.fecha = fecha;
         this.estadoAnimo = estadoAnimo;

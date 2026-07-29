@@ -12,6 +12,9 @@ public class EstadoAnimo {
     private String nombre;
     private String categoria;
 
+    public EstadoAnimo() {
+    }
+
     public EstadoAnimo(String nombre, String categoria) {
         this.nombre = nombre;
         this.categoria = categoria;
