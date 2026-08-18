@@ -29,7 +29,6 @@ public class SaludMentalApp {
                 JOptionPane.showMessageDialog(null, "Aqui debe ir la logica: Registrar usuario");
             } else if (opcion == 2) {
                 JOptionPane.showMessageDialog(null, "Aqui debe ir la logica: Iniciar sesion");
-                Menu_Usuario();
             } else if (opcion == 3) {
                 JOptionPane.showMessageDialog(null, "saliendo del sistema :p");
             } else {
@@ -37,7 +36,7 @@ public class SaludMentalApp {
             }
         }
     }
-    public static void Menu_Usuario() {
+    public static void Menu_Usuario(Usuario usuario) {
         int opcion = 0;
         while (opcion != 6) {
             String menu = "menu de usuario  \n\n"
@@ -60,7 +59,9 @@ public class SaludMentalApp {
             } else if (opcion == 3) {
                 JOptionPane.showMessageDialog(null, "Aqui debe ir la logica: Ver recomendacion del dia");
             } else if (opcion == 4) {
-                JOptionPane.showMessageDialog(null, "Aqui debe ir la logica: Ver reporte");
+                Reporte reporte = new Reporte();
+                reporte.generar(usuario.getDiario());
+                JOptionPane.showMessageDialog(null, reporte.getResumen());
             } else if (opcion == 5) {
                 JOptionPane.showMessageDialog(null, "Aqui debe ir la logica: Editar perfil");
             } else if (opcion == 6) {
