@@ -14,8 +14,10 @@ public class Usuario {
     private int edad;
     private String correo;
     private String contrasena;
+    private DiarioEmocional diario;
 
     public Usuario() {
+        this.diario = new DiarioEmocional();
     }
 
     public Usuario(String nombre, int edad, String correo, String contrasena) {
@@ -23,6 +25,7 @@ public class Usuario {
         this.edad = edad;
         this.correo = correo;
         this.contrasena = contrasena;
+        this.diario = new DiarioEmocional();
     }
 
     public String getNombre() {
@@ -55,5 +58,13 @@ public class Usuario {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public DiarioEmocional getDiario() {
+        return diario;
+    }
+
+    public void setDiario(DiarioEmocional diario) {
+        this.diario = diario;
     }
 }

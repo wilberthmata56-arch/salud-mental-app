@@ -25,12 +25,26 @@ public class DiarioEmocional {
 
     public void setRegistros(RegistroEmocional[] registros) {
         this.registros = registros;
+    }
         
-        
-        public RegistroEmocional[] obtenerRegistros() {
+    public RegistroEmocional[] obtenerRegistros() {
         return registros;
     }
 
+    public boolean agregarRegistro(RegistroEmocional nuevoRegistro) {
+        if (this.registros == null) {
+            this.registros = new RegistroEmocional[10];
+        }
+
+        for (int indice = 0; indice < this.registros.length; indice++) {
+            if (this.registros[indice] == null) {
+                this.registros[indice] = nuevoRegistro;
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public int contarRegistros() {
         if (registros == null) {
             return 0;

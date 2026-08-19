@@ -71,4 +71,48 @@ public class SaludMentalApp {
             }
         }
     }
+    
+    public static void registrarEstadoEmocional(Usuario usuario) {
+        String menuDeEscala= " Registro Emocional  \n\n"
+                + "Seleccione su estado de ánimo actual:\n"
+                + "5. Feliz (Positiva)\n"
+                + "4. Tranquilo (Positiva)\n"
+                + "3. Triste (Negativa)\n"
+                + "2. Ansioso (Negativa)\n"
+                + "1. Enojado (Negativa)\n\n"
+                + "Elija una opción (1-5):";
+
+        String opcionTexto = JOptionPane.showInputDialog(menuDeEscala);
+        if (opcionTexto == null) {
+            return;
+        }
+
+        int opcionEscala = Integer.parseInt(opcionTexto);
+        EstadoAnimo estadoSeleccionado = EstadoAnimo.obtenerPorEscala(opcionEscala);
+
+        if (estadoSeleccionado == null) {
+            JOptionPane.showMessageDialog(null, "Opción no válida. Debe seleccionar un número del 1 al 5.");
+            return;
+        }
+
+        String fecha = JOptionPane.showInputDialog("Ingrese la fecha actual (ejemplo: 18/08/2026):");
+        if (fecha == null || fecha.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "La fecha es requerida para realizar el registro.");
+            return;
+        }
+
+        String nota = JOptionPane.showInputDialog("Escriba una breve nota sobre cómo se siente hoy:");
+        if (nota == null) {
+            nota = "";
+        }
+
+        RegistroEmocional nuevoRegistro = new RegistroEmocional(fecha, estadoSeleccionado.getNombre(), nota);
+        boolean guardadoConExito = usuario.getDiario().agregarRegistro(nuevoRegistro);
+
+        if (guardadoConExito) {
+            JOptionPane.showMessageDialog(null, "Estado registrado correctamente.\nCategoría asignada: " + estadoSeleccionado.getCategoria());
+        } else {
+            JOptionPane.showMessageDialog(null, "El diario está lleno (máximo alcanzado: 10 registros).");
+        }
+    }
 }
