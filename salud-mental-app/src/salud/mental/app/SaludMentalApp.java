@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package salud.mental.app;
+import salud.mental.app.Clases.EstadoAnimo;
+import salud.mental.app.Clases.RegistroEmocional;
+import salud.mental.app.Clases.Reporte;
+import salud.mental.app.Clases.Usuario;
 import javax.swing.JOptionPane;
 /**
  *
@@ -19,7 +23,7 @@ public class SaludMentalApp {
                     + "1.Registrar usuario\n"
                     + "2.Iniciar sesion\n"
                     + "3.Salir del sistema\n\n"
-                    + "elija una opcion   .";
+                    + "Elija una opcion";
             String texto = JOptionPane.showInputDialog(menu);
             if (texto == null) {
                 texto = "3";
