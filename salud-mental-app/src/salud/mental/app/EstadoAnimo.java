@@ -37,18 +37,19 @@ public class EstadoAnimo {
     }
     
     public static EstadoAnimo obtenerPorEscala(int opcionEscala) {
-        if (opcionEscala == 5) {
-            return new EstadoAnimo("Feliz", "Positiva");
-        } else if (opcionEscala == 4) {
-            return new EstadoAnimo("Tranquilo", "Positiva");
-        } else if (opcionEscala == 3) {
-            return new EstadoAnimo("Triste", "Negativa");
-        } else if (opcionEscala == 2) {
-            return new EstadoAnimo("Ansioso", "Negativa");
-        } else if (opcionEscala == 1) {
-            return new EstadoAnimo("Enojado", "Negativa");
-        } else {
-            return null;
+        switch (opcionEscala) {
+            case 5:
+                return new EstadoAnimo("Feliz", "Positiva");
+            case 4:
+                return new EstadoAnimo("Tranquilo", "Positiva");
+            case 3:
+                return new EstadoAnimo("Triste", "Negativa");
+            case 2:
+                return new EstadoAnimo("Ansioso", "Negativa");
+            case 1:
+                return new EstadoAnimo("Enojado", "Negativa");
+            default:
+                return null;
         }
     }
 }

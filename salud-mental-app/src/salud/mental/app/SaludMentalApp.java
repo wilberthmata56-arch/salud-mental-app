@@ -75,11 +75,11 @@ public class SaludMentalApp {
     public static void registrarEstadoEmocional(Usuario usuario) {
         String menuDeEscala= " Registro Emocional  \n\n"
                 + "Seleccione su estado de ánimo actual:\n"
-                + "5. Feliz (Positiva)\n"
-                + "4. Tranquilo (Positiva)\n"
-                + "3. Triste (Negativa)\n"
-                + "2. Ansioso (Negativa)\n"
-                + "1. Enojado (Negativa)\n\n"
+                + "5. Feliz\n"
+                + "4. Tranquilo\n"
+                + "3. Triste\n"
+                + "2. Ansioso\n"
+                + "1. Enojado\n\n"
                 + "Elija una opción (1-5):";
 
         String opcionTexto = JOptionPane.showInputDialog(menuDeEscala);
