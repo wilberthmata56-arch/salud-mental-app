@@ -3,13 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package salud.mental.app.Clases;
+
 import salud.mental.app.Clases.RegistroEmocional;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author facal
  */
 public class DiarioEmocional {
+
     private RegistroEmocional[] registros;
 
     public DiarioEmocional() {
@@ -27,7 +30,7 @@ public class DiarioEmocional {
     public void setRegistros(RegistroEmocional[] registros) {
         this.registros = registros;
     }
-        
+
     public RegistroEmocional[] obtenerRegistros() {
         return registros;
     }
@@ -45,7 +48,7 @@ public class DiarioEmocional {
         }
         return false;
     }
-    
+
     public int contarRegistros() {
         if (registros == null) {
             return 0;

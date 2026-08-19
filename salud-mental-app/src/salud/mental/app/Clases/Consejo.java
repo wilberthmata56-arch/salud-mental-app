@@ -11,6 +11,7 @@ import salud.mental.app.Clases.RegistroEmocional;
  * @author facal
  */
 public class Consejo {
+
     private String texto;
     private String categoria;
 
@@ -37,6 +38,7 @@ public class Consejo {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
     public void evaluarEmocion(RegistroEmocional registro) {
         if (registro == null) {
             String textoVacio = "No hay registro para evaluar el dia de hoy.";
@@ -92,4 +94,3 @@ public class Consejo {
         return actividadRecomendada;
     }
 }
-

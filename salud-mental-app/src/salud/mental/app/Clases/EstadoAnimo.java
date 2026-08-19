@@ -9,6 +9,7 @@ package salud.mental.app.Clases;
  * @author Wilberth
  */
 public class EstadoAnimo {
+
     private String nombre;
     private String categoria;
 
@@ -35,7 +36,7 @@ public class EstadoAnimo {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    
+
     public static EstadoAnimo obtenerPorEscala(int opcionEscala) {
         switch (opcionEscala) {
             case 5:

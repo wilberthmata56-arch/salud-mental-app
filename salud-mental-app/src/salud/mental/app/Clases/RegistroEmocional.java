@@ -9,6 +9,7 @@ package salud.mental.app.Clases;
  * @author Wilberth
  */
 public class RegistroEmocional {
+
     private String fecha;
     private String estadoAnimo;
     private String nota;
@@ -45,5 +46,5 @@ public class RegistroEmocional {
     public void setNota(String nota) {
         this.nota = nota;
     }
-    
+
 }

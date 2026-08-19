@@ -9,6 +9,7 @@ package salud.mental.app.Clases;
  * @author PC
  */
 public class Actividad {
+
     private String descripcion;
     private String categoria;
 
@@ -35,6 +36,5 @@ public class Actividad {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    
-    
+
 }

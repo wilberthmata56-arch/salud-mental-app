@@ -4,6 +4,9 @@
  */
 package salud.mental.app.Clases;
 
+import javax.swing.JOptionPane;
+import salud.mental.app.Enum.ActualizarPerfil;
+
 /**
  *
  * @author arias
@@ -26,6 +29,74 @@ public class Usuario {
         this.correo = correo;
         this.contrasena = contrasena;
         this.diario = new DiarioEmocional();
+    }
+
+    public boolean validarInicioSesion(String correo, String contrasena) {
+        return this.correo.equals(correo)
+                && this.contrasena.equals(contrasena);
+    }
+
+    public void actualizarDatos() {
+
+        ActualizarPerfil[] opciones = ActualizarPerfil.values();
+
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "¿Qué dato desea editar?",
+                "Editar perfil",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                opciones,
+                opciones[0]
+        );
+
+        switch (opcion) {
+
+            case 0:
+                String nuevoNombre = JOptionPane.showInputDialog(
+                        null,
+                        "Ingrese su nuevo nombre:"
+                );
+
+                if (nuevoNombre != null && !nuevoNombre.isEmpty()) {
+                    this.nombre = nuevoNombre;
+                }
+                break;
+
+            case 1:
+                String nuevaEdad = JOptionPane.showInputDialog(
+                        null,
+                        "Ingrese su nueva edad:"
+                );
+
+                if (nuevaEdad != null && !nuevaEdad.isEmpty()) {
+                    this.edad = Integer.parseInt(nuevaEdad);
+                }
+                break;
+
+            case 2:
+                String nuevoCorreo = JOptionPane.showInputDialog(
+                        null,
+                        "Ingrese su nuevo correo:"
+                );
+
+                if (nuevoCorreo != null && !nuevoCorreo.isEmpty()) {
+                    this.correo = nuevoCorreo;
+                }
+                break;
+
+            case 3:
+                String nuevaContrasena = JOptionPane.showInputDialog(
+                        null,
+                        "Ingrese su nueva contraseña:"
+                );
+
+                if (nuevaContrasena != null && !nuevaContrasena.isEmpty()) {
+                    this.contrasena = nuevaContrasena;
+                }
+                break;
+        }
     }
 
     public String getNombre() {
