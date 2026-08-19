@@ -67,13 +67,19 @@ public class Reporte {
             }
         }
         int posMayor = 0;
+        boolean empate = false;
         for (int j = 1; j < conteos.length; j++) {
             if (conteos[j] > conteos[posMayor]) {
                 posMayor = j;
+                empate = false;
+            } else if (conteos[j] == conteos[posMayor] && conteos[j] != 0) {
+                empate = true;
             }
         }
         if (conteos[posMayor] == 0) {
             this.estadoMasFrecuente = "no determinado";
+        } else if (empate) {
+            this.estadoMasFrecuente = "empate";
         } else {
             this.estadoMasFrecuente = nombres[posMayor];
         }
