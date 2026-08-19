@@ -65,6 +65,11 @@ public class RegistroEmocional {
             return;
         }
 
+        if (!ValidadorNumerico.esNumeroEntero(opcionTexto)) {
+            JOptionPane.showMessageDialog(null, "opcion no valida tiene que ser un número del 1 al 5");
+            return;
+        }
+
         int opcionEscala = Integer.parseInt(opcionTexto);
         EstadoAnimo estadoSeleccionado = EstadoAnimo.obtenerPorEscala(opcionEscala);
 

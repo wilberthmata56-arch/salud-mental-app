@@ -7,6 +7,7 @@ package salud.mental.app.Clases.Menus;
 import javax.swing.JOptionPane;
 import salud.mental.app.Clases.Usuario.Usuario;
 import salud.mental.app.Clases.Usuario.UsuarioGestion;
+import salud.mental.app.Clases.ValidadorNumerico;
 
 /**
  *
@@ -26,7 +27,11 @@ public class MenuPrincipal {
             if (texto == null) {
                 texto = "3";
             }
-            opcion = Integer.parseInt(texto);
+            if (ValidadorNumerico.esNumeroEntero(texto)) {
+                opcion = Integer.parseInt(texto);
+            } else {
+                opcion = -1;
+            }
             if (opcion == 1) {
                 usuarios.registro();
             } else if (opcion == 2) {

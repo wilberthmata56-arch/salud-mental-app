@@ -5,6 +5,7 @@
 package salud.mental.app.Clases.Usuario;
 
 import javax.swing.JOptionPane;
+import salud.mental.app.Clases.ValidadorNumerico;
 
 /**
  *
@@ -37,6 +38,14 @@ public class UsuarioGestion {
         );
 
         if (edadTexto == null) {
+            return false;
+        }
+
+        if (!ValidadorNumerico.esNumeroEntero(edadTexto)) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "La edad tiene que ser un numoero entero positivo"
+            );
             return false;
         }
 

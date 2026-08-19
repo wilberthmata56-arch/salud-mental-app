@@ -6,6 +6,7 @@ package salud.mental.app.Clases.Usuario;
 
 import javax.swing.JOptionPane;
 import salud.mental.app.Clases.DiarioEmocional;
+import salud.mental.app.Clases.ValidadorNumerico;
 import salud.mental.app.Enum.ActualizarPerfil;
 
 /**
@@ -72,7 +73,11 @@ public class Usuario {
                 );
 
                 if (nuevaEdad != null && !nuevaEdad.isEmpty()) {
-                    this.edad = Integer.parseInt(nuevaEdad);
+                    if (ValidadorNumerico.esNumeroEntero(nuevaEdad)) {
+                        this.edad = Integer.parseInt(nuevaEdad);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "La edad tiene que ser un numero entero positivo");
+                    }
                 }
                 break;
 

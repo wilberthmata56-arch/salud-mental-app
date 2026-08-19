@@ -8,6 +8,7 @@ import salud.mental.app.Clases.Reporte;
 import salud.mental.app.Clases.RegistroEmocional;
 import salud.mental.app.Clases.Consejo;
 import salud.mental.app.Clases.Actividad;
+import salud.mental.app.Clases.ValidadorNumerico;
 import salud.mental.app.Clases.Usuario.Usuario;
 /**
  *
@@ -29,7 +30,11 @@ public class MenuUsuario {
             if (texto == null) {
                 texto = "6";
             }
-            opcion = Integer.parseInt(texto);
+            if (ValidadorNumerico.esNumeroEntero(texto)) {
+                opcion = Integer.parseInt(texto);
+            } else {
+                opcion = -1;
+            }
             if (opcion == 1) {
                 RegistroEmocional.registrarEstadoEmocional(usuario);
             } else if (opcion == 2) {
