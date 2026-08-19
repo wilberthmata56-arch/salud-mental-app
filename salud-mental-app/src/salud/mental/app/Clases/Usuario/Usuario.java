@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package salud.mental.app.Clases;
+package salud.mental.app.Clases.Usuario;
 
 import javax.swing.JOptionPane;
+import salud.mental.app.Clases.DiarioEmocional;
 import salud.mental.app.Enum.ActualizarPerfil;
 
 /**
