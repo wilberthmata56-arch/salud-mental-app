@@ -32,6 +32,14 @@ public class UsuarioGestion {
             return false;
         }
 
+        if (nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "El nombre no puede estar vacío."
+            );
+            return false;
+        }
+
         String edadTexto = JOptionPane.showInputDialog(
                 null,
                 "Ingrese su edad:"
@@ -114,7 +122,7 @@ public class UsuarioGestion {
 
         for (int i = 0; i < cantidadUsuarios; i++) {
 
-            if (usuarios[i].getCorreo().equals(correo)) {
+            if (usuarios[i].getCorreo().equalsIgnoreCase(correo)) {
                 return usuarios[i];
             }
         }
