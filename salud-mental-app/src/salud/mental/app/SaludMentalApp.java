@@ -10,6 +10,7 @@ import salud.mental.app.Clases.Usuario.Usuario;
 import javax.swing.JOptionPane;
 import static salud.mental.app.Clases.RegistroEmocional.registrarEstadoEmocional;
 import salud.mental.app.Clases.Menus.MenuPrincipal;
+import salud.mental.app.Clases.Reporte;
 import salud.mental.app.Clases.Usuario.UsuarioGestion;
 
 /**
