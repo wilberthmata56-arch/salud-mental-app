@@ -68,12 +68,28 @@ public class UsuarioGestion {
             return false;
         }
 
+        if (correo.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "El correo no puede estar vacío."
+            );
+            return false;
+        }
+
         String contrasena = JOptionPane.showInputDialog(
                 null,
                 "Ingrese su contraseña:"
         );
 
         if (contrasena == null) {
+            return false;
+        }
+
+        if (contrasena.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "La contraseña no puede estar vacía."
+            );
             return false;
         }
 
