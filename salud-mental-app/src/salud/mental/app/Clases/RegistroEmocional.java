@@ -86,17 +86,53 @@ public class RegistroEmocional {
             }
         }
 
-        String fecha = JOptionPane.showInputDialog("Ingrese la fecha actual (ejemplo: 18/08/2026):");
-        if (fecha == null) {
+        String mesTexto = JOptionPane.showInputDialog("Ingrese el mes 1 a 12 ");
+        if (mesTexto == null) {
             return;
         }
+        int mes = ValidadorNumerico.esNumeroEntero(mesTexto) ? Integer.parseInt(mesTexto) : -1;
+        while (mes < 1 || mes > 12) {
+            mesTexto = JOptionPane.showInputDialog("El mes debe ser entre 1 y 12 ");
+            if (mesTexto == null) {
+                return;
+            }
+            mes = ValidadorNumerico.esNumeroEntero(mesTexto) ? Integer.parseInt(mesTexto) : -1;
+        }
 
-        while (fecha.isEmpty()) {
-            fecha = JOptionPane.showInputDialog("La fecha es requerida. Ingrese la fecha actual (ejemplo: 18/08/2026):");
-            if (fecha == null) {
+        int diaMaximo;
+        if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+            diaMaximo = 30;
+        } else if (mes == 2) {
+            diaMaximo = 28;
+        } else {
+            diaMaximo = 31;
+        }
+
+        String diaTexto = JOptionPane.showInputDialog("Ingrese el día 1 a " + diaMaximo);
+        if (diaTexto == null) {
+            return;
+        }
+        int dia = ValidadorNumerico.esNumeroEntero(diaTexto) ? Integer.parseInt(diaTexto) : -1;
+        while (dia < 1 || dia > diaMaximo) {
+            diaTexto = JOptionPane.showInputDialog("El día debe ser un número entre 1 y " + diaMaximo );
+            if (diaTexto == null) {
+                return;
+            }
+            dia = ValidadorNumerico.esNumeroEntero(diaTexto) ? Integer.parseInt(diaTexto) : -1;
+        }
+
+        String yearTexto = JOptionPane.showInputDialog("Ingrese el año ");
+        if (yearTexto == null) {
+            return;
+        }
+        while (!ValidadorNumerico.esNumeroEntero(yearTexto)) {
+            yearTexto = JOptionPane.showInputDialog("El año debe ser un número");
+            if (yearTexto == null) {
                 return;
             }
         }
+
+        String fecha = diaTexto + "/" + mesTexto + "/" + yearTexto;
 
         String nota = JOptionPane.showInputDialog("Escriba una breve nota sobre cómo se siente hoy:");
         if (nota == null) {
