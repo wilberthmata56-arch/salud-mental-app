@@ -15,6 +15,10 @@ public class ValidadorNumerico {
             return false;
         }
 
+        if (texto.length() > 9) {
+            return false;
+        }
+
         for (int i = 0; i < texto.length(); i++) {
             char elemento = texto.charAt(i);
             if (elemento < '0' || elemento > '9') {
