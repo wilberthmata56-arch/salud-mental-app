@@ -76,6 +76,8 @@ public class UsuarioGestion {
             return false;
         }
 
+        correo = correo.toLowerCase();
+
         String contrasena = JOptionPane.showInputDialog(
                 null,
                 "Ingrese su contraseña:"

@@ -34,7 +34,7 @@ public class Usuario {
     }
 
     public boolean validarInicioSesion(String correo, String contrasena) {
-        return this.correo.equals(correo)
+        return this.correo.equals(correo.toLowerCase())
                 && this.contrasena.equals(contrasena);
     }
 
@@ -92,7 +92,7 @@ public class Usuario {
                     if (existente != null && existente != this) {
                         JOptionPane.showMessageDialog(null, "El correo ya existe");
                     } else {
-                        this.correo = nuevoCorreo;
+                        this.correo = nuevoCorreo.toLowerCase();
                     }
                 }
                 break;
