@@ -96,6 +96,10 @@ public class UsuarioGestion {
         }
 
         if (cantidadUsuarios >= usuarios.length) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "No se pueden registrar más usuarios (límite alcanzado: 100)."
+            );
             return false;
         }
 
