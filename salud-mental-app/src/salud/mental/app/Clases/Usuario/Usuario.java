@@ -88,11 +88,15 @@ public class Usuario {
                 );
 
                 if (nuevoCorreo != null && !nuevoCorreo.isEmpty()) {
-                    Usuario existente = usuarios.buscarUsuario(nuevoCorreo);
-                    if (existente != null && existente != this) {
-                        JOptionPane.showMessageDialog(null, "El correo ya existe");
+                    if (!nuevoCorreo.contains("@")) {
+                        JOptionPane.showMessageDialog(null, "El correo debe contener un @");
                     } else {
-                        this.correo = nuevoCorreo.toLowerCase();
+                        Usuario existente = usuarios.buscarUsuario(nuevoCorreo);
+                        if (existente != null && existente != this) {
+                            JOptionPane.showMessageDialog(null, "El correo ya existe");
+                        } else {
+                            this.correo = nuevoCorreo.toLowerCase();
+                        }
                     }
                 }
                 break;

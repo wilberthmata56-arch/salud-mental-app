@@ -71,7 +71,15 @@ public class UsuarioGestion {
         if (correo.isEmpty()) {
             JOptionPane.showMessageDialog(
                     null,
-                    "El correo no puede estar vacío."
+                    "El correo no puede estar vacío"
+            );
+            return false;
+        }
+
+        if (!correo.contains("@")) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "El correo debe contener un @"
             );
             return false;
         }
