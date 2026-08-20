@@ -32,12 +32,11 @@ public class UsuarioGestion {
             return false;
         }
 
-        if (nombre.isEmpty()) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "El nombre no puede estar vacío."
-            );
-            return false;
+        while (nombre.isEmpty()) {
+            nombre = JOptionPane.showInputDialog(null, "El nombre no puede estar vacío. Ingrese su nombre:");
+            if (nombre == null) {
+                return false;
+            }
         }
 
         String edadTexto = JOptionPane.showInputDialog(
@@ -49,12 +48,11 @@ public class UsuarioGestion {
             return false;
         }
 
-        if (!ValidadorNumerico.esNumeroEntero(edadTexto)) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "La edad tiene que ser un numoero entero positivo"
-            );
-            return false;
+        while (!ValidadorNumerico.esNumeroEntero(edadTexto)) {
+            edadTexto = JOptionPane.showInputDialog(null, "La edad tiene que ser un numero entero positivo. Ingrese su edad:");
+            if (edadTexto == null) {
+                return false;
+            }
         }
 
         int edad = Integer.parseInt(edadTexto);
@@ -68,23 +66,29 @@ public class UsuarioGestion {
             return false;
         }
 
-        if (correo.isEmpty()) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "El correo no puede estar vacío"
-            );
-            return false;
+        while (correo.isEmpty()) {
+            correo = JOptionPane.showInputDialog(null, "El correo no puede estar vacío. Ingrese su correo:");
+            if (correo == null) {
+                return false;
+            }
         }
 
-        if (!correo.contains("@")) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "El correo debe contener un @"
-            );
-            return false;
+        while (!correo.contains("@")) {
+            correo = JOptionPane.showInputDialog(null, "El correo debe contener un @. Ingrese su correo:");
+            if (correo == null) {
+                return false;
+            }
         }
 
         correo = correo.toLowerCase();
+
+        while (buscarUsuario(correo) != null) {
+            correo = JOptionPane.showInputDialog(null, "El correo ya está registrado. Ingrese otro correo:");
+            if (correo == null) {
+                return false;
+            }
+            correo = correo.toLowerCase();
+        }
 
         String contrasena = JOptionPane.showInputDialog(
                 null,
@@ -95,26 +99,17 @@ public class UsuarioGestion {
             return false;
         }
 
-        if (contrasena.isEmpty()) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "La contraseña no puede estar vacía."
-            );
-            return false;
+        while (contrasena.isEmpty()) {
+            contrasena = JOptionPane.showInputDialog(null, "La contraseña no puede estar vacía. Ingrese su contraseña:");
+            if (contrasena == null) {
+                return false;
+            }
         }
 
         if (cantidadUsuarios >= usuarios.length) {
             JOptionPane.showMessageDialog(
                     null,
                     "No se pueden registrar más usuarios (límite alcanzado: 100)."
-            );
-            return false;
-        }
-
-        if (buscarUsuario(correo) != null) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "El correo ya está registrado."
             );
             return false;
         }

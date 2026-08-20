@@ -65,23 +65,37 @@ public class RegistroEmocional {
             return;
         }
 
-        if (!ValidadorNumerico.esNumeroEntero(opcionTexto)) {
-            JOptionPane.showMessageDialog(null, "opcion no valida tiene que ser un número del 1 al 5");
-            return;
+        while (!ValidadorNumerico.esNumeroEntero(opcionTexto)) {
+            opcionTexto = JOptionPane.showInputDialog("opcion no valida tiene que ser un número del 1 al 5. Elija una opción (1-5):");
+            if (opcionTexto == null) {
+                return;
+            }
         }
 
         int opcionEscala = Integer.parseInt(opcionTexto);
         EstadoAnimo estadoSeleccionado = EstadoAnimo.obtenerPorEscala(opcionEscala);
 
-        if (estadoSeleccionado == null) {
-            JOptionPane.showMessageDialog(null, "Opción no válida. Debe seleccionar un número del 1 al 5.");
-            return;
+        while (estadoSeleccionado == null) {
+            opcionTexto = JOptionPane.showInputDialog("Opción no válida. Debe seleccionar un número del 1 al 5:");
+            if (opcionTexto == null) {
+                return;
+            }
+            if (ValidadorNumerico.esNumeroEntero(opcionTexto)) {
+                opcionEscala = Integer.parseInt(opcionTexto);
+                estadoSeleccionado = EstadoAnimo.obtenerPorEscala(opcionEscala);
+            }
         }
 
         String fecha = JOptionPane.showInputDialog("Ingrese la fecha actual (ejemplo: 18/08/2026):");
-        if (fecha == null || fecha.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "La fecha es requerida para realizar el registro.");
+        if (fecha == null) {
             return;
+        }
+
+        while (fecha.isEmpty()) {
+            fecha = JOptionPane.showInputDialog("La fecha es requerida. Ingrese la fecha actual (ejemplo: 18/08/2026):");
+            if (fecha == null) {
+                return;
+            }
         }
 
         String nota = JOptionPane.showInputDialog("Escriba una breve nota sobre cómo se siente hoy:");
