@@ -38,7 +38,7 @@ public class MenuPrincipal {
                 Usuario usuario = usuarios.inicioSesion();
 
                 if (usuario != null) {
-                    MenuUsuario.Menu_Usuario(usuario);
+                    MenuUsuario.Menu_Usuario(usuario, usuarios);
                 }
             } else if (opcion == 3) {
                 JOptionPane.showMessageDialog(null, "saliendo del sistema :p");

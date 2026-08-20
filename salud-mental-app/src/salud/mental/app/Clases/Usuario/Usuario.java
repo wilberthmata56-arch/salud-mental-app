@@ -38,7 +38,7 @@ public class Usuario {
                 && this.contrasena.equals(contrasena);
     }
 
-    public void actualizarDatos() {
+    public void actualizarDatos(UsuarioGestion usuarios) {
 
         ActualizarPerfil[] opciones = ActualizarPerfil.values();
 
@@ -88,7 +88,12 @@ public class Usuario {
                 );
 
                 if (nuevoCorreo != null && !nuevoCorreo.isEmpty()) {
-                    this.correo = nuevoCorreo;
+                    Usuario existente = usuarios.buscarUsuario(nuevoCorreo);
+                    if (existente != null && existente != this) {
+                        JOptionPane.showMessageDialog(null, "El correo ya existe");
+                    } else {
+                        this.correo = nuevoCorreo;
+                    }
                 }
                 break;
 

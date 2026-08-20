@@ -10,12 +10,13 @@ import salud.mental.app.Clases.Consejo;
 import salud.mental.app.Clases.Actividad;
 import salud.mental.app.Clases.ValidadorNumerico;
 import salud.mental.app.Clases.Usuario.Usuario;
+import salud.mental.app.Clases.Usuario.UsuarioGestion;
 /**
  *
  * @author PC
  */
 public class MenuUsuario {
-    public static void Menu_Usuario(Usuario usuario) {
+    public static void Menu_Usuario(Usuario usuario, UsuarioGestion usuarios) {
         int opcion = 0;
         while (opcion != 6) {
             String menu = "menu de usuario  \n\n"
@@ -58,7 +59,7 @@ public class MenuUsuario {
                 reporte.generar(usuario.getDiario());
                 JOptionPane.showMessageDialog(null, reporte.getResumen());
             } else if (opcion == 5) {
-                usuario.actualizarDatos();
+                usuario.actualizarDatos(usuarios);
             } else if (opcion == 6) {
                 JOptionPane.showMessageDialog(null, "cerrando sesion");
             } else {
